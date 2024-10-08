@@ -4,28 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>delayed alert box</title>
+    <title>Delayed Alert Box </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: white;
+            color: #b3004b;
+            border: 1px solid #b3004b;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b3004b;
+            color: white;
+        }
+    </style>
 </head>
-<style>
-    h1 {
-        color: maroon;
-        text-align: center;
-    }
-</style>
+
 <body>
-    <h1>Delayed alert box using callback functions</h1>
+    <div class="container">
+        <h1>Delayed Alert Box Example</h1>
+        <button id="showAlertBtn">Show Alert</button>
+    </div>
 
     <script>
-        function add() {
-            let a = prompt("enter the number for a")
-            a = Number.parseInt(a)
-            let b = prompt("enter the  number for b")
-            b = Number.parseInt(b)
-           document.write("the addition of a and b  is ", (a + b))
+        document.getElementById('showAlertBtn').addEventListener('click', function () {
+            showDelayedAlert('This is a delayed alert!', 3000);
+        });
 
+        function showDelayedAlert(message, delay) {
+            setTimeout(function () {
+                alert(message);
+            }, delay);
         }
-        let c = setTimeout(add, 4000)
-        console.log(c)
     </script>
 </body>
 
